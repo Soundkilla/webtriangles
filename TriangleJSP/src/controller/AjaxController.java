@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,14 +40,16 @@ public class AjaxController extends HttpServlet {
 		Double fieldb = Double.valueOf(request.getParameter("fieldb"));
 		Double fieldc = Double.valueOf(request.getParameter("fieldc"));
 		String result;
-		if(fielda+fieldb+fieldc > 10.0) {
-			result = "Okay";
-		}
-		else result = "Notokay";
-		request.setAttribute("result", result); // It'll be available as ${sum}.
+		TriangleStatus triangleStatus = new TriangleStatus();
+		if (triangleStatus.isTriangle(fielda, fieldb, fieldc)) {
+			result = triangleStatus.isObtuse(fielda, fieldb, fieldc); 
+		}	
+		else result = "Ne treugolnik";
+		request.setAttribute("result", result); // It'll be available as ${result}.
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
 	    request.getRequestDispatcher("index.jsp").forward(request, response); 
-		//  response.setContentType("text/plain");
-		// response.setCharacterEncoding("UTF-8");
+		
 		 // response.getWriter().write(String.valueOf(result));
 	}
 

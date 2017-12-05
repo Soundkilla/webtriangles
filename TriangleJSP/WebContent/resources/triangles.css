@@ -41,9 +41,10 @@ font-family:Verdana;
 
 .result {
 font-family:Verdana; 
-    Font-size:15px;
+    Font-size:18px;
     color: red;
     margin: 10px;
+    margin-left: 70px;
 }
 
 .image {
