@@ -7,9 +7,20 @@
 <title>Triangles</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/TriangleJSP/resources/triangles.css">
+<script type="text/javascript">
+function validate_form ( )
+{
+        if ( document.triangles.fielda.value == null || document.triangles.fieldb.value == null || document.triangles.fieldc.value == null)        	
+        {
+                alert ( "Заполните все поля" );
+                return false;
+        }
+        else return true;
+}
+</script>
 </head>
 <body>
-<form id="triangles" action="AjaxController" method="post" class="form">
+<form name="triangles" action="AjaxController" method="post" class="form">
 <img alt="logo" src="/TriangleJSP/img/logo.png" align = "right" class="image">
 <span class="texts">A:</span><input name="fielda" class="field"><br>
 <span class="texts">B:</span><input name="fieldb" class="field"><br>
